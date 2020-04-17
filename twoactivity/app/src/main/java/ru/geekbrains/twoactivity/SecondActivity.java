@@ -15,9 +15,11 @@ public class SecondActivity extends AppCompatActivity implements Constants {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        String text = getIntent().getStringExtra(TEXT);
+        Parcel parcel = (Parcel) getIntent().getSerializableExtra(TEXT);
         TextView textView = findViewById(R.id.textView);
-        textView.setText(text);
+        textView.setText(parcel.id);
+        TextView nameView = findViewById(R.id.textView2);
+        nameView.setText(parcel.name);
 
         Button retToMain = findViewById(R.id.button2);
         retToMain.setOnClickListener(new View.OnClickListener() {
